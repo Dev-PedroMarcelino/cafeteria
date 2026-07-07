@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Paleta Café Banana ─────────────────────────────── */
+  --color-banana: #ffe135;
+  --color-banana-dark: #f0c400;
+  --color-banana-deep: #d9a800;
+  --color-bubblegum: #ff91a4;
+  --color-bubblegum-dark: #ff6b85;
+  --color-bubblegum-deep: #e84a68;
+  --color-cream: #fffbf0;
+  --color-cocoa: #4a2c17;
+  --color-cocoa-dark: #2e1a0c;
+
+  --shadow-card: 0 10px 40px -12px rgb(74 44 23 / 0.14);
+  --shadow-card-hover: 0 24px 60px -16px rgb(255 107 133 / 0.5);
+  --shadow-glow-pink: 0 0 0 3px rgb(255 145 164 / 0.55), 0 18px 50px -12px rgb(255 107 133 / 0.6);
+
+  --radius-blob: 62% 38% 55% 45% / 48% 60% 40% 52%;
+}
+
+@theme inline {
+  --font-display: var(--font-fredoka), "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-cocoa);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-banana);
+  color: var(--color-cocoa);
+}
+
+/* Scrollbar com a cara da marca */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-banana), var(--color-bubblegum));
+  border-radius: 999px;
+  border: 3px solid var(--color-cream);
+}
+
+/* ── Utilidades da marca ──────────────────────────────── */
+
+/* Moldura em degradê amarelo→rosa (borda dinâmica das fotos) */
+.gradient-frame {
+  position: relative;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--color-banana) 0%, var(--color-bubblegum) 55%, var(--color-bubblegum-dark) 100%);
+  background-size: 200% 200%;
+  animation: frame-shift 6s ease-in-out infinite;
+}
+
+@keyframes frame-shift {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Máscara orgânica (blob) para fotos */
+.blob-mask {
+  border-radius: var(--radius-blob);
+  overflow: hidden;
+}
+
+/* Texto com degradê da marca */
+.text-brand-gradient {
+  background: linear-gradient(92deg, var(--color-banana-deep) 0%, var(--color-bubblegum-deep) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fundo pontilhado sutil (remete à logo) */
+.dotted-bg {
+  background-image: radial-gradient(rgb(255 145 164 / 0.28) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .gradient-frame {
+    animation: none;
+  }
+}
