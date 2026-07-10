@@ -27,17 +27,16 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  /* Elementos com transform (marquees inclinados, motinha) não podem
-     criar scroll lateral — precisa estar na raiz para valer no mobile */
-  overflow-x: hidden;
-  overflow-x: clip;
 }
 
 body {
   background-color: var(--color-cream);
   color: var(--color-cocoa);
   font-family: var(--font-body);
+  /* clip (não hidden): corta o vazamento dos transforms (marquees,
+     motinha) sem transformar o body em scroll container no mobile */
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -45,17 +44,20 @@ body {
   color: var(--color-cocoa);
 }
 
-/* Scrollbar com a cara da marca */
-::-webkit-scrollbar {
-  width: 12px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-banana), var(--color-bubblegum));
-  border-radius: 999px;
-  border: 3px solid var(--color-cream);
+/* Scrollbar com a cara da marca — só em desktop (mouse); no celular
+   ela vira uma barra fixa esquisita em vez do overlay nativo */
+@media (hover: hover) and (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-banana), var(--color-bubblegum));
+    border-radius: 999px;
+    border: 3px solid var(--color-cream);
+  }
 }
 
 /* ── Utilidades da marca ──────────────────────────────── */
