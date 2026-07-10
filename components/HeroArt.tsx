@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
   useReducedMotion,
@@ -12,6 +13,8 @@ import {
 import CoffeeCupSvg from "./art/CoffeeCupSvg";
 import BananaSvg from "./art/BananaSvg";
 import CakeSliceSvg from "./art/CakeSliceSvg";
+import BananaBurst from "./ui/BananaBurst";
+import Floaty from "./ui/Floaty";
 
 /* ────────────────────────────────────────────────────────────
    Hero 2D — o copo da logo flutuando com vapor rosa, cercado
@@ -81,33 +84,6 @@ function Sparkle({
   );
 }
 
-/** Item flutuante com bobbing próprio (gravidade zero). */
-function Floaty({
-  children,
-  className,
-  duration = 5,
-  delay = 0,
-  rotate = 8,
-  animate,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  duration?: number;
-  delay?: number;
-  rotate?: number;
-  animate: boolean;
-}) {
-  return (
-    <motion.div
-      className={`absolute ${className ?? ""}`}
-      animate={animate ? { y: [0, -16, 0], rotate: [-rotate, rotate, -rotate] } : undefined}
-      transition={{ duration, repeat: Infinity, delay, ease: "easeInOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 /** Camada com parallax de mouse (profundidade configurável). */
 function ParallaxLayer({
   mx,
@@ -141,6 +117,10 @@ function ParallaxLayer({
 export default function HeroArt() {
   const reduceMotion = useReducedMotion();
   const animate = !reduceMotion;
+
+  // Cada tap no copo dispara um burst; no 5º, chuva dobrada + 🎉
+  const [taps, setTaps] = useState(0);
+  const isParty = taps > 0 && taps % 5 === 0;
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -182,7 +162,34 @@ export default function HeroArt() {
           transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut" }}
         >
           <Steam animate={animate} />
-          <CoffeeCupSvg className="relative w-full drop-shadow-[0_24px_32px_rgb(74_44_23/0.2)]" />
+          {/* Copo interativo: squash no tap + explosão de bananinhas */}
+          {/* tabIndex -1: easter egg decorativo, o wrapper é aria-hidden */}
+          <motion.button
+            type="button"
+            tabIndex={-1}
+            onClick={() => setTaps((t) => t + 1)}
+            whileTap={{ scaleY: 0.86, scaleX: 1.1 }}
+            transition={{ type: "spring", stiffness: 320, damping: 12 }}
+            className="pointer-events-auto relative block w-full origin-bottom cursor-pointer"
+          >
+            <CoffeeCupSvg className="relative w-full drop-shadow-[0_24px_32px_rgb(74_44_23/0.2)]" />
+            <BananaBurst trigger={taps} count={isParty ? 12 : 6} distance={isParty ? 96 : 72} />
+            <AnimatePresence>
+              {isParty && (
+                <motion.span
+                  key={taps}
+                  initial={{ opacity: 0, y: 8, scale: 0.5 }}
+                  animate={{ opacity: 1, y: -34, scale: 1.4 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.9, ease: "easeOut" }}
+                  className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 text-3xl"
+                  aria-hidden
+                >
+                  🎉
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
           {/* Sombra no "chão" respirando junto com o copo */}
           <motion.div
             className="absolute -bottom-[14%] left-1/2 h-[7%] w-[80%] -translate-x-1/2 rounded-full bg-cocoa/15 blur-md"

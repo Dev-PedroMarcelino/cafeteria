@@ -1,22 +1,50 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/lib/site";
 import Reveal from "./ui/Reveal";
+import ScallopDivider from "./ui/ScallopDivider";
+import Floaty from "./ui/Floaty";
+import BananaSvg from "./art/BananaSvg";
+import CakeSliceSvg from "./art/CakeSliceSvg";
 
 export default function About() {
+  const reduceMotion = useReducedMotion();
+  const [sealFast, setSealFast] = useState(false);
+  const sealTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
+  const speedUpSeal = () => {
+    setSealFast(true);
+    clearTimeout(sealTimer.current ?? undefined);
+    sealTimer.current = setTimeout(() => setSealFast(false), 2000);
+  };
+
   return (
-    <section id="sobre" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="sobre" className="relative overflow-hidden pb-24 pt-14 sm:pb-32 sm:pt-20">
       {/* Faixa diagonal de cor ao fundo */}
       <div className="absolute inset-0 -skew-y-3 scale-110 bg-gradient-to-br from-banana/15 via-cream to-bubblegum/15" />
+
+      {/* Toldo abrindo a seção */}
+      <ScallopDivider className="absolute inset-x-0 top-0" />
+
+      {/* Guloseimas flutuando nas margens */}
+      <div className="pointer-events-none absolute inset-0 hidden sm:block" aria-hidden>
+        <Floaty className="left-[3%] top-[12%] w-12" duration={6.5} rotate={12} animate={!reduceMotion}>
+          <BananaSvg className="w-full opacity-70" />
+        </Floaty>
+        <Floaty className="bottom-[8%] right-[4%] w-14" duration={7.2} delay={1.1} rotate={7} animate={!reduceMotion}>
+          <CakeSliceSvg className="w-full opacity-80" />
+        </Floaty>
+      </div>
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         {/* Colagem assimétrica de fotos */}
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
           <Reveal variant="pop">
-            <div className="gradient-frame blob-mask relative aspect-[4/3] w-[85%]">
-              <div className="blob-mask relative h-full w-full">
+            <div className="gradient-frame blob-mask blob-breathe relative aspect-[4/3] w-[85%]">
+              <div className="blob-mask blob-breathe relative h-full w-full">
                 <Image
                   src="/midia/fachada.jpg"
                   alt="Fachada do Café Banana em Leme - SP"
@@ -46,11 +74,14 @@ export default function About() {
             </motion.div>
           </Reveal>
 
-          {/* Selo girando */}
+          {/* Selo girando — acelera quando cutucado */}
           <Reveal variant="pop" delay={0.25} className="absolute -top-6 right-[8%]">
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: sealFast ? 4 : 18, repeat: Infinity, ease: "linear" }}
+              whileHover={{ scale: 1.15 }}
+              onHoverStart={speedUpSeal}
+              onTapStart={speedUpSeal}
               className="flex h-24 w-24 items-center justify-center rounded-full bg-banana font-display text-xs font-bold text-cocoa shadow-card"
             >
               <svg viewBox="0 0 100 100" className="h-full w-full p-2">
@@ -100,7 +131,13 @@ export default function About() {
               whileTap={{ scale: 0.96, y: 1 }}
               className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-banana via-banana to-bubblegum px-8 py-4 font-display text-lg font-semibold text-cocoa shadow-[0_10px_0_0_var(--color-banana-deep),0_24px_48px_-12px_rgb(255_107_133/0.5)] transition-shadow hover:shadow-[0_6px_0_0_var(--color-banana-deep),0_28px_56px_-12px_rgb(255_107_133/0.65)]"
             >
-              <span className="text-2xl">📍</span>
+              <motion.span
+                className="text-2xl"
+                animate={reduceMotion ? undefined : { y: [0, -5, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2.5, ease: "easeOut" }}
+              >
+                📍
+              </motion.span>
               Como chegar — {site.address}
             </motion.a>
           </Reveal>

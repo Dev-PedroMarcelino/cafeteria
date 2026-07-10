@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { site, whatsappOrderUrl } from "@/lib/site";
 import Reveal from "./ui/Reveal";
+import BananaBurst from "./ui/BananaBurst";
+import ScooterSvg from "./art/ScooterSvg";
 
 const socials = [
   {
@@ -36,8 +39,11 @@ const socials = [
 ];
 
 export default function Footer() {
+  const reduceMotion = useReducedMotion();
+  const [heartBurst, setHeartBurst] = useState(0);
+
   return (
-    <footer id="contato" className="relative mt-12 overflow-hidden bg-cocoa text-cream">
+    <footer id="contato" className="relative mt-12 bg-cocoa text-cream">
       {/* Onda de transição */}
       <svg
         viewBox="0 0 1440 80"
@@ -50,6 +56,49 @@ export default function Footer() {
           d="M0,0 L1440,0 L1440,20 C1200,75 900,75 720,45 C540,15 240,15 0,60 Z"
         />
       </svg>
+
+      {/* Motinha do delivery atravessando a onda */}
+      {reduceMotion ? (
+        <div className="absolute -top-8 right-6 w-16 sm:-top-10 sm:w-20" aria-hidden>
+          <ScooterSvg className="w-full" />
+        </div>
+      ) : (
+        <motion.div
+          className="pointer-events-none absolute inset-x-0 -top-8 h-10 sm:-top-10"
+          initial="hidden"
+          whileInView="ride"
+          viewport={{ once: true, amount: 0.1 }}
+          aria-hidden
+        >
+          <motion.div
+            variants={{
+              hidden: { x: "-18vw" },
+              ride: {
+                x: "108vw",
+                transition: { duration: 3.5, ease: "easeInOut", delay: 0.2 },
+              },
+            }}
+            className="w-16 sm:w-20"
+          >
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 0.35, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ScooterSvg className="w-full" />
+            </motion.div>
+            {/* Poeirinha rosa atrás */}
+            {[0, 1].map((i) => (
+              <motion.span
+                key={i}
+                className="absolute top-1/2 h-3 w-3 rounded-full bg-bubblegum/60 blur-[2px]"
+                style={{ left: i === 0 ? -10 : -20 }}
+                animate={{ opacity: [0, 0.8, 0], scale: [0.5, 1.2] }}
+                transition={{ duration: 0.7, repeat: Infinity, delay: i * 0.25 }}
+              />
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-12 pt-28 sm:px-6 lg:grid-cols-3">
         {/* Marca */}
@@ -129,8 +178,18 @@ export default function Footer() {
               Pedir pelo WhatsApp
             </motion.a>
             <p className="mt-8 text-sm text-cream/40">
-              © {new Date().getFullYear()} Café Banana — {site.city}. Feito com 💛 e muita
-              cafeína.
+              © {new Date().getFullYear()} Café Banana — {site.city}. Feito com{" "}
+              <motion.button
+                type="button"
+                onClick={() => setHeartBurst((b) => b + 1)}
+                whileTap={{ scale: 1.4 }}
+                aria-label="Um carinho do Café Banana"
+                className="relative inline-block cursor-pointer align-baseline"
+              >
+                💛
+                <BananaBurst trigger={heartBurst} distance={48} />
+              </motion.button>{" "}
+              e muita cafeína.
             </p>
           </div>
         </Reveal>

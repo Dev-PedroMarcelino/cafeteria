@@ -5,6 +5,7 @@ import Menu from "@/components/Menu";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import BananaRain from "@/components/BananaRain";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import IntroProvider from "@/components/IntroProvider";
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
         <Menu />
         <About />
         <Footer />
+
+        {/* Pedido sempre à mão depois que o hero sai de cena */}
+        <FloatingWhatsApp />
       </main>
     </IntroProvider>
   );

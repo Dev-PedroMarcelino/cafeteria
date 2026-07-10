@@ -1,11 +1,23 @@
-﻿"use client";
+"use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "framer-motion";
 import HeroArt from "./HeroArt";
+import BananaSvg from "./art/BananaSvg";
 import { useIntroDone } from "./IntroProvider";
 
 export default function Hero() {
   const introDone = useIntroDone();
+  const reduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const [scrolledPast, setScrolledPast] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (y) => setScrolledPast(y > 80));
 
   return (
     <section
@@ -36,7 +48,27 @@ export default function Hero() {
             className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl xl:text-7xl"
           >
             O Sabor que{" "}
-            <span className="text-brand-gradient">Leme Inteira</span> Ama.
+            <span className="relative inline-block">
+              <span className="text-brand-gradient">Leme Inteira</span>
+              {/* Rabisco desenhado à mão sob o destaque */}
+              <svg
+                viewBox="0 0 200 12"
+                className="absolute -bottom-2 left-0 w-full overflow-visible"
+                aria-hidden
+              >
+                <motion.path
+                  d="M3,8 Q28,2 52,8 T101,8 T150,8 T197,7"
+                  fill="none"
+                  stroke="var(--color-bubblegum-dark)"
+                  strokeWidth="4.5"
+                  strokeLinecap="round"
+                  initial={{ pathLength: reduceMotion ? 1 : 0 }}
+                  animate={introDone ? { pathLength: 1 } : undefined}
+                  transition={{ duration: 0.7, delay: 1.05, ease: "easeInOut" }}
+                />
+              </svg>
+            </span>{" "}
+            Ama.
           </motion.h1>
 
           <motion.p
@@ -84,20 +116,21 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Indicador de scroll */}
+      {/* Indicador de scroll — banana quicando, some ao rolar */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={introDone ? { opacity: 1 } : undefined}
-        transition={{ delay: 1.6 }}
-        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 lg:block"
+        animate={{ opacity: introDone && !scrolledPast ? 1 : 0 }}
+        transition={{ delay: introDone && !scrolledPast ? 1.6 : 0 }}
+        className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-12 w-7 items-start justify-center rounded-full border-2 border-cocoa/25 p-1.5"
+          animate={reduceMotion ? undefined : { y: [0, 8, 0], rotate: [-8, 8, -8] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-7"
         >
-          <div className="h-2.5 w-1.5 rounded-full bg-bubblegum" />
+          <BananaSvg className="w-full" />
         </motion.div>
+        <span className="font-display text-xs font-medium text-cocoa/50">desliza 👇</span>
       </motion.div>
     </section>
   );

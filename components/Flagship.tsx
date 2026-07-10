@@ -36,7 +36,12 @@ function Marquee({ reverse = false }: { reverse?: boolean }) {
   );
 
   return (
-    <div className="relative z-10 overflow-hidden bg-banana py-3" aria-hidden>
+    <div
+      className={`relative z-10 overflow-hidden bg-banana py-3 ${
+        reverse ? "-mt-2 rotate-[1.5deg] scale-x-105" : "-mb-2 -rotate-[1.5deg] scale-x-105"
+      }`}
+      aria-hidden
+    >
       <motion.div
         className="flex w-max"
         animate={reduceMotion ? undefined : { x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
@@ -121,7 +126,14 @@ export default function Flagship() {
           <div className="max-w-xl text-center sm:text-left">
             <Reveal variant="pop">
               <span className="inline-flex items-center gap-2 rounded-full bg-banana px-4 py-1.5 font-display text-sm font-bold text-cocoa shadow-lg">
-                ⭐ O Carro-Chefe da Casa
+                <motion.span
+                  className="inline-block"
+                  animate={reduceMotion ? undefined : { rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
+                  ⭐
+                </motion.span>
+                O Carro-Chefe da Casa
               </span>
             </Reveal>
 
@@ -141,7 +153,26 @@ export default function Flagship() {
 
             <Reveal delay={0.24}>
               <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
-                <span className="rounded-full border border-cream/25 bg-white/10 px-6 py-3 font-display text-xl font-bold text-banana backdrop-blur-sm">
+                <span className="relative rounded-full border border-cream/25 bg-white/10 px-6 py-3 font-display text-xl font-bold text-banana backdrop-blur-sm">
+                  {/* Vaporzinho: saiu da chapa agora */}
+                  {!reduceMotion && (
+                    <span className="pointer-events-none absolute -top-1 left-1/2" aria-hidden>
+                      {[0, 1].map((i) => (
+                        <motion.span
+                          key={i}
+                          className="absolute h-3 w-3 rounded-full bg-bubblegum/80 blur-[3px]"
+                          style={{ left: i === 0 ? -12 : 2 }}
+                          animate={{ y: [0, -24], opacity: [0, 0.9, 0], scale: [0.6, 1.4] }}
+                          transition={{
+                            duration: 2.4,
+                            repeat: Infinity,
+                            delay: i * 1.1,
+                            ease: "easeOut",
+                          }}
+                        />
+                      ))}
+                    </span>
+                  )}
                   {formatPrice(item.price)}
                 </span>
                 <motion.a
@@ -150,7 +181,7 @@ export default function Flagship() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.06, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-4 text-center font-display text-lg font-semibold text-cocoa shadow-[0_16px_40px_-10px_rgb(255_145_164/0.6)] sm:w-auto"
+                  className="shine w-full rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-4 text-center font-display text-lg font-semibold text-cocoa shadow-[0_16px_40px_-10px_rgb(255_145_164/0.6)] sm:w-auto"
                 >
                   Pedir o Carro-Chefe
                 </motion.a>

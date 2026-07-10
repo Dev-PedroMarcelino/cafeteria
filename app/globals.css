@@ -81,6 +81,55 @@ body {
   overflow: hidden;
 }
 
+/* Blob "respirando" — a forma orgânica muda devagar */
+.blob-breathe {
+  animation: blob-morph 9s ease-in-out infinite;
+}
+
+@keyframes blob-morph {
+  0%,
+  100% {
+    border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%;
+  }
+  33% {
+    border-radius: 45% 55% 40% 60% / 58% 42% 58% 42%;
+  }
+  66% {
+    border-radius: 55% 45% 62% 38% / 42% 55% 45% 58%;
+  }
+}
+
+/* Brilho varrendo botões de conversão de tempos em tempos */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgb(255 255 255 / 0.55) 50%,
+    transparent 68%
+  );
+  transform: translateX(-100%);
+  animation: shine-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine-sweep {
+  0%,
+  55% {
+    transform: translateX(-100%);
+  }
+  85%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Texto com degradê da marca */
 .text-brand-gradient {
   background: linear-gradient(92deg, var(--color-banana-deep) 0%, var(--color-bubblegum-deep) 70%);
@@ -99,7 +148,12 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .gradient-frame {
+  .gradient-frame,
+  .blob-breathe {
     animation: none;
+  }
+  .shine::after {
+    animation: none;
+    transform: translateX(-100%);
   }
 }
