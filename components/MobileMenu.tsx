@@ -55,7 +55,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
       id="menu-mobile"
-      className="fixed inset-0 z-[45] flex flex-col bg-cream pt-20 md:hidden"
+      className="fixed inset-x-0 top-0 z-[45] flex h-dvh flex-col overscroll-contain bg-cream pt-20 md:hidden"
       initial={reduceMotion ? { opacity: 0 } : { y: "-112%" }}
       animate={reduceMotion ? { opacity: 1 } : { y: 0 }}
       exit={reduceMotion ? { opacity: 0 } : { y: "-112%" }}
@@ -66,11 +66,11 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
       {/* Textura e brilhos da marca (mesma linguagem do splash) */}
       <div className="dotted-bg absolute inset-0 opacity-50" aria-hidden />
       <div
-        className="absolute left-0 top-1/4 h-72 w-72 -translate-x-1/2 rounded-full bg-banana/35 blur-[100px]"
+        className="absolute left-0 top-1/4 h-64 w-64 -translate-x-1/2 rounded-full bg-banana/35 blur-3xl"
         aria-hidden
       />
       <div
-        className="absolute bottom-1/4 right-0 h-72 w-72 translate-x-1/2 rounded-full bg-bubblegum/35 blur-[100px]"
+        className="absolute bottom-1/4 right-0 h-64 w-64 translate-x-1/2 rounded-full bg-bubblegum/35 blur-3xl"
         aria-hidden
       />
 
@@ -104,7 +104,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
 
       {/* Links de navegação */}
       <motion.nav
-        className="relative z-10 flex flex-1 flex-col items-center justify-center gap-7 px-8"
+        className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-7 overflow-y-auto px-8 py-4"
         variants={listVariants}
         initial={reduceMotion ? undefined : "hidden"}
         animate={reduceMotion ? undefined : "show"}

@@ -48,7 +48,7 @@ export default function FloatingWhatsApp() {
           animate={{ scale: 1, rotate: 0 }}
           exit={{ scale: 0, rotate: 20 }}
           transition={{ type: "spring", stiffness: 260, damping: 14 }}
-          className="fixed bottom-5 right-4 z-50 flex items-center gap-3 md:bottom-8 md:right-[calc(min(5vw,6rem)+1rem)]"
+          className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-50 flex items-center gap-3 md:bottom-8 md:right-[calc(min(5vw,6rem)+1rem)]"
         >
           {/* Balãozinho de fala */}
           <AnimatePresence>

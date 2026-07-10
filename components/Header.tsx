@@ -57,13 +57,13 @@ export default function Header() {
           {/* Logo animada */}
           <motion.a
             href="#topo"
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 sm:gap-3"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => setMenuOpen(false)}
           >
             <motion.span
-              className="relative block h-12 w-12 overflow-hidden rounded-full ring-2 ring-banana"
+              className="relative block h-10 w-10 overflow-hidden rounded-full ring-2 ring-banana sm:h-12 sm:w-12"
               animate={{ rotate: [0, -6, 6, 0] }}
               whileHover={{ rotate: 12 }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -77,7 +77,7 @@ export default function Header() {
                 priority
               />
             </motion.span>
-            <span className="font-display text-xl font-semibold leading-none">
+            <span className="font-display text-lg font-semibold leading-none sm:text-xl">
               <span className="text-bubblegum-deep">Café</span>{" "}
               <span className="text-banana-deep">Banana</span>
             </span>
@@ -101,7 +101,7 @@ export default function Header() {
             <motion.a
               href="#cardapio"
               onClick={() => setMenuOpen(false)}
-              className="rounded-full bg-gradient-to-r from-banana to-bubblegum px-4 py-2.5 font-display text-sm font-semibold text-cocoa sm:px-6 sm:py-3"
+              className="whitespace-nowrap rounded-full bg-gradient-to-r from-banana to-bubblegum px-3.5 py-2.5 font-display text-sm font-semibold text-cocoa sm:px-6 sm:py-3"
               animate={{
                 scale: [1, 1.05, 1],
                 boxShadow: [

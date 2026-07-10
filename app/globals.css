@@ -39,6 +39,13 @@ body {
   overflow-x: clip;
 }
 
+/* Toque responsivo no celular: sem double-tap zoom nem flash cinza */
+a,
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::selection {
   background-color: var(--color-banana);
   color: var(--color-cocoa);
