@@ -27,6 +27,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  /* Elementos com transform (marquees inclinados, motinha) não podem
+     criar scroll lateral — precisa estar na raiz para valer no mobile */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {

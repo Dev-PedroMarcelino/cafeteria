@@ -75,7 +75,14 @@ export default function Footer() {
               hidden: { x: "-18vw" },
               ride: {
                 x: "108vw",
-                transition: { duration: 3.5, ease: "easeInOut", delay: 0.2 },
+                // Sai pela direita e volta a entrar pela esquerda, em loop
+                transition: {
+                  duration: 4,
+                  ease: "linear",
+                  delay: 0.2,
+                  repeat: Infinity,
+                  repeatDelay: 2.5,
+                },
               },
             }}
             className="w-16 sm:w-20"
