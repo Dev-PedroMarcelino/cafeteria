@@ -25,7 +25,7 @@ export function useIntroDone() {
 function SplashOverlay() {
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-cream"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-cream"
       exit={{ y: "-112%" }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       aria-hidden

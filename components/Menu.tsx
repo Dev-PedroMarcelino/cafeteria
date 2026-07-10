@@ -15,7 +15,7 @@ export default function Menu() {
   const items = filter === "todos" ? menu : menu.filter((i) => i.category === filter);
 
   return (
-    <section id="cardapio" className="relative">
+    <section id="cardapio" className="relative overflow-hidden">
       {/* Toldo de cafeteria abrindo a seção */}
       <ScallopDivider />
 

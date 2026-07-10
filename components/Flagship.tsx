@@ -83,7 +83,7 @@ export default function Flagship() {
   const contentY = useTransform(scrollYProgress, [0.1, 0.9], [48, -48]);
 
   return (
-    <section id="carro-chefe" ref={sectionRef} className="relative">
+    <section id="carro-chefe" ref={sectionRef} className="relative overflow-hidden">
       <Marquee />
 
       <div className="relative flex min-h-[88svh] items-center overflow-hidden bg-cocoa-dark">

@@ -57,14 +57,16 @@ export default function Footer() {
         />
       </svg>
 
-      {/* Motinha do delivery atravessando a onda */}
+      {/* Motinha do delivery rodando sobre o ondulado marrom.
+          A faixa tem overflow-hidden para a travessia nunca criar
+          scroll lateral (independe de suporte a overflow-x: clip). */}
       {reduceMotion ? (
-        <div className="absolute -top-8 right-6 w-16 sm:-top-10 sm:w-20" aria-hidden>
+        <div className="absolute -top-2 right-8 w-16 sm:w-20" aria-hidden>
           <ScooterSvg className="w-full" />
         </div>
       ) : (
         <motion.div
-          className="pointer-events-none absolute inset-x-0 -top-8 h-10 sm:-top-10"
+          className="pointer-events-none absolute inset-x-0 -top-3 z-10 h-14 overflow-hidden"
           initial="hidden"
           whileInView="ride"
           viewport={{ once: true, amount: 0.1 }}
@@ -85,7 +87,7 @@ export default function Footer() {
                 },
               },
             }}
-            className="w-16 sm:w-20"
+            className="absolute bottom-1 w-16 sm:w-20"
           >
             <motion.div
               animate={{ y: [0, -3, 0] }}
