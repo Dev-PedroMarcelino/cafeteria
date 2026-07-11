@@ -5,8 +5,7 @@
 export const site = {
   name: "Café Banana",
   city: "Leme - SP",
-  // TODO: trocar pelo número real com DDI+DDD (somente dígitos)
-  whatsapp: "5519999999999",
+  whatsapp: "5519981057714",
   // TODO: trocar pelo endereço exato para o link do mapa ficar cravado
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
