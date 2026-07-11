@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { formatPrice, menu } from "@/lib/menu";
-import { whatsappOrderUrl } from "@/lib/site";
 import Reveal from "./ui/Reveal";
+import { useCart } from "./cart/CartProvider";
 
 /* ────────────────────────────────────────────────────────────
    Carro-Chefe — vitrine cinematográfica do Misto de Costela
@@ -56,6 +56,7 @@ function Marquee({ reverse = false }: { reverse?: boolean }) {
 
 export default function Flagship() {
   const reduceMotion = useReducedMotion();
+  const { openModal } = useCart();
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -175,16 +176,15 @@ export default function Flagship() {
                   )}
                   {formatPrice(item.price)}
                 </span>
-                <motion.a
-                  href={whatsappOrderUrl(item.name)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  type="button"
+                  onClick={() => openModal(item)}
                   whileHover={{ scale: 1.06, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="shine w-full rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-4 text-center font-display text-lg font-semibold text-cocoa shadow-[0_16px_40px_-10px_rgb(255_145_164/0.6)] sm:w-auto"
                 >
                   Pedir o Carro-Chefe
-                </motion.a>
+                </motion.button>
                 <motion.a
                   href="#cardapio"
                   whileHover={{ scale: 1.05 }}
