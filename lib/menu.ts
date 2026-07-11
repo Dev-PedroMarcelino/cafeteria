@@ -167,15 +167,6 @@ export const menu: MenuItem[] = [
     image: "/midia/bolinho-de-chuva-3.jpg",
     category: "banana",
   },
-  {
-    id: "mesa-completa",
-    name: "Mesa Completa Café Banana",
-    description: "O café da manhã dos sonhos para compartilhar. Serve 2-4 pessoas.",
-    price: 89.9,
-    image: "/midia/mesa-completa.jpg",
-    category: "banana",
-    featured: true,
-  },
 ];
 
 export function formatPrice(value: number) {
