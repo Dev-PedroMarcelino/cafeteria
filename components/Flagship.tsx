@@ -8,14 +8,14 @@ import Reveal from "./ui/Reveal";
 import { useCart } from "./cart/CartProvider";
 
 /* ────────────────────────────────────────────────────────────
-   Carro-Chefe — vitrine cinematográfica do Misto de Costela
+   Carro-Chefe — vitrine cinematográfica do Misto de Carne
    com o vídeo real correndo de fundo, marquees de destaque e
    CTA direto para o pedido.
    ──────────────────────────────────────────────────────────── */
 
 const item = menu.find((i) => i.id === "misto-costela")!;
 
-const MARQUEE_TEXT = ["O CARRO-CHEFE DA CASA", "MISTO DE COSTELA", "FEITO NA CHAPA", "★"];
+const MARQUEE_TEXT = ["O CARRO-CHEFE DA CASA", "MISTO DE CARNE", "FEITO NA CHAPA", "★"];
 
 function Marquee({ reverse = false }: { reverse?: boolean }) {
   const reduceMotion = useReducedMotion();
@@ -140,13 +140,13 @@ export default function Flagship() {
 
             <Reveal variant="gum" delay={0.08}>
               <h2 className="mt-5 font-display text-5xl font-bold leading-[1.02] text-cream sm:text-6xl lg:text-7xl">
-                Misto de <span className="text-brand-gradient">Costela</span>
+                Misto de <span className="text-brand-gradient">Carne</span>
               </h2>
             </Reveal>
 
             <Reveal delay={0.16}>
               <p className="mt-5 text-lg leading-relaxed text-cream/85 sm:text-xl">
-                Costela desfiada no capricho, queijo derretendo e pão prensado na
+                Carne desfiada no capricho, queijo derretendo e pão prensado na
                 chapa até ficar crocante. É ele que você está vendo aí atrás —
                 sem filtro, direto da nossa cozinha. 🤤
               </p>

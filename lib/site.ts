@@ -6,11 +6,10 @@ export const site = {
   name: "Café Banana",
   city: "Leme - SP",
   whatsapp: "5519981057714",
-  // TODO: trocar pelo endereço exato para o link do mapa ficar cravado
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent("Café Banana, Leme - SP"),
-  address: "Centro, Leme - SP",
+    encodeURIComponent("R. Carlos Paes de Barros, 35 - São Manoel, Leme - SP, 13610-170"),
+  address: "R. Carlos Paes de Barros, 35 - São Manoel, Leme - SP, 13610-170",
   instagram: "https://instagram.com/", // TODO: @ do café
   facebook: "https://facebook.com/", // TODO: página do café
   hours: [

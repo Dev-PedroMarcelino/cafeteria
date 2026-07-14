@@ -132,9 +132,9 @@ export const menu: MenuItem[] = [
   },
   {
     id: "misto-costela",
-    name: "Misto de Costela",
-    description: "Costela desfiada com queijo derretido no pão na chapa. O carro-chefe da casa!",
-    price: 19.9,
+    name: "Misto de Carne",
+    description: "Carne desfiada com queijo derretido no pão na chapa. O carro-chefe da casa!",
+    price: 22,
     image: "/midia/misto-costela.jpg",
     category: "salgados",
     flagship: true,

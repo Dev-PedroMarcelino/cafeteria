@@ -129,7 +129,7 @@ export default function About() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.96, y: 1 }}
-              className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-banana via-banana to-bubblegum px-8 py-4 font-display text-lg font-semibold text-cocoa shadow-[0_10px_0_0_var(--color-banana-deep),0_24px_48px_-12px_rgb(255_107_133/0.5)] transition-shadow hover:shadow-[0_6px_0_0_var(--color-banana-deep),0_28px_56px_-12px_rgb(255_107_133/0.65)]"
+              className="mt-10 flex w-full max-w-sm items-center justify-center gap-3 rounded-full bg-gradient-to-r from-banana via-banana to-bubblegum px-8 py-4 font-display text-lg font-semibold text-cocoa shadow-[0_10px_0_0_var(--color-banana-deep),0_24px_48px_-12px_rgb(255_107_133/0.5)] transition-shadow hover:shadow-[0_6px_0_0_var(--color-banana-deep),0_28px_56px_-12px_rgb(255_107_133/0.65)]"
             >
               <motion.span
                 className="text-2xl"
@@ -138,7 +138,7 @@ export default function About() {
               >
                 📍
               </motion.span>
-              Como chegar — {site.address}
+              Como chegar
             </motion.a>
           </Reveal>
         </div>
