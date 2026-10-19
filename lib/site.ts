@@ -5,11 +5,11 @@
 export const site = {
   name: "Café da Praça",
   city: "Leme - SP",
-  whatsapp: "5519981057714",
+  whatsapp: "5519998765432",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent("R. Carlos Paes de Barros, 35 - São Manoel, Leme - SP, 13610-170"),
-  address: "R. Carlos Paes de Barros, 35 - São Manoel, Leme - SP, 13610-170",
+    encodeURIComponent("Praça Rui Barbosa, 142 - Centro, Leme - SP, 13610-215"),
+  address: "Praça Rui Barbosa, 142 - Centro, Leme - SP, 13610-215",
   instagram: "https://instagram.com/", // TODO: @ do café
   facebook: "https://facebook.com/", // TODO: página do café
   hours: [

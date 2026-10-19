@@ -25,7 +25,7 @@ function StarSparkleIcon({ className }: { className?: string }) {
   );
 }
 
-export default function BananaBurst({
+export default function CoffeeBurst({
   trigger,
   count = 6,
   distance = 72,

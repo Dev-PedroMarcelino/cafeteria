@@ -60,8 +60,8 @@ export const addonsByCategory: Record<Category, CartAddon[]> = {
     { id: "catupiry", name: "Catupiry", price: 4.5 },
     { id: "molho-da-casa", name: "Molho especial da casa", price: 2.5 },
   ],
-  banana: [
-    { id: "banana-caramelizada", name: "Banana caramelizada extra", price: 4.0 },
+  especiais: [
+    { id: "calda-artesanal", name: "Calda de caramelo da casa", price: 4.0 },
     { id: "nutella", name: "Nutella", price: 5.5 },
     { id: "farofa-pacoca", name: "Farofa doce de paçoca", price: 3.0 },
   ],

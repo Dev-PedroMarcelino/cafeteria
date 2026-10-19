@@ -1,4 +1,4 @@
-export type Category = "cafes" | "doces" | "salgados" | "banana";
+export type Category = "cafes" | "doces" | "salgados" | "especiais";
 
 export type MenuItem = {
   id: string;
@@ -17,7 +17,7 @@ export const categories: { id: Category | "todos"; label: string; emoji: string 
   { id: "cafes", label: "Cafés", emoji: "☕" },
   { id: "doces", label: "Doces", emoji: "🍰" },
   { id: "salgados", label: "Salgados", emoji: "🥟" },
-  { id: "banana", label: "Especiais da Casa", emoji: "⭐" },
+  { id: "especiais", label: "Especiais da Casa", emoji: "⭐" },
 ];
 
 export const menu: MenuItem[] = [
@@ -142,21 +142,21 @@ export const menu: MenuItem[] = [
 
   // ── Especiais da Casa ───────────────────────────────────
   {
-    id: "combo-banana",
+    id: "combo-da-praca",
     name: "Combo Café da Praça",
     description: "Café especial + doce da casa. A combinação favorita dos nossos clientes.",
     price: 24.9,
     image: "/midia/combo.jpg",
-    category: "banana",
+    category: "especiais",
     featured: true,
   },
   {
-    id: "bolinho-banana",
-    name: "Bolinho de Chuva com Banana",
-    description: "Nosso clássico com banana caramelizada por cima. Exclusivo!",
+    id: "bolinho-artesanal",
+    name: "Bolinho de Chuva Artesanal",
+    description: "Nosso clássico sequinho com açúcar, canela e calda especial. Exclusivo!",
     price: 13.9,
     image: "/midia/bolinho-de-chuva-2.jpg",
-    category: "banana",
+    category: "especiais",
     featured: true,
   },
   {
@@ -165,7 +165,7 @@ export const menu: MenuItem[] = [
     description: "Bolinhos quentinhos para acompanhar o café das 16h.",
     price: 15.9,
     image: "/midia/bolinho-de-chuva-3.jpg",
-    category: "banana",
+    category: "especiais",
   },
 ];
 

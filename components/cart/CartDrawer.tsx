@@ -27,7 +27,7 @@ const PAYMENTS: { id: PaymentMethod; label: string; emoji: string }[] = [
 
 type Step = "cart" | "form" | "done";
 
-const CUSTOMER_KEY = "cb-customer";
+const CUSTOMER_KEY = "cp-customer";
 
 export default function CartDrawer() {
   const { drawerOpen, closeDrawer, lines, subtotal, setQty, clear } = useCart();

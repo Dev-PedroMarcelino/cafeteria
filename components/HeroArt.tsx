@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 import CoffeeCupSvg from "./art/CoffeeCupSvg";
 import CakeSliceSvg from "./art/CakeSliceSvg";
-import BananaBurst from "./ui/BananaBurst";
+import CoffeeBurst from "./ui/CoffeeBurst";
 import Floaty from "./ui/Floaty";
 
 /* ────────────────────────────────────────────────────────────
@@ -172,7 +172,7 @@ export default function HeroArt() {
             className="pointer-events-auto relative block w-full origin-bottom cursor-pointer"
           >
             <CoffeeCupSvg className="relative w-full drop-shadow-[0_24px_32px_rgb(58_37_24/0.2)]" />
-            <BananaBurst trigger={taps} count={isParty ? 12 : 6} distance={isParty ? 96 : 72} />
+            <CoffeeBurst trigger={taps} count={isParty ? 12 : 6} distance={isParty ? 96 : 72} />
             <AnimatePresence>
               {isParty && (
                 <motion.span

@@ -2,15 +2,23 @@
 
 @theme {
   /* ── Paleta Café da Praça ─────────────────────────────── */
-  --color-banana: #c8956c;
-  --color-banana-dark: #a67748;
-  --color-banana-deep: #8b5e34;
-  --color-bubblegum: #d4a574;
-  --color-bubblegum-dark: #b8854e;
-  --color-bubblegum-deep: #9a6b38;
+  --color-caramel: #c8956c;
+  --color-caramel-dark: #a67748;
+  --color-caramel-deep: #8b5e34;
+  --color-latte: #d4a574;
+  --color-latte-dark: #b8854e;
+  --color-latte-deep: #9a6b38;
   --color-cream: #faf6f0;
   --color-cocoa: #3a2518;
   --color-cocoa-dark: #1e110a;
+
+  /* Cores de apoio */
+  --color-banana: var(--color-caramel);
+  --color-banana-dark: var(--color-caramel-dark);
+  --color-banana-deep: var(--color-caramel-deep);
+  --color-bubblegum: var(--color-latte);
+  --color-bubblegum-dark: var(--color-latte-dark);
+  --color-bubblegum-deep: var(--color-latte-deep);
 
   /* Cores premium extras */
   --color-amber: #d4a044;

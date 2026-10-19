@@ -19,7 +19,7 @@ npm start        # serve o build de produção
 | --- | --- | --- |
 | 🎬 Intro de abertura | primeiro paint | [IntroProvider.tsx](components/IntroProvider.tsx) — cortina de marca (logo dourada + nome em springs), sobe com borda curva; Header e Hero esperam o sinal `useIntroDone()` para entrar em cena. Pulada com `prefers-reduced-motion`. |
 | 🥩 Carro-Chefe em vídeo | seção própria | [Flagship.tsx](components/Flagship.tsx) — vídeo real (`public/midia/video-carro-chefe.mp4`) com zoom sutil no scroll, marquees, preço vindo de `lib/menu.ts` e CTA de pedido. Toca/pausa via IntersectionObserver; vira foto com `prefers-reduced-motion`. |
-| ☕ Chuva de café | trilhos laterais (≤5vw) | [BananaRain.tsx](components/BananaRain.tsx) — grãos de café e copinhos caindo em loop suave com balanço e profundidade. Desligada no mobile e com `prefers-reduced-motion`. |
+| ☕ Chuva de café | trilhos laterais (≤5vw) | [CoffeeRain.tsx](components/CoffeeRain.tsx) — grãos de café e copinhos caindo em loop suave com balanço e profundidade. Desligada no mobile e com `prefers-reduced-motion`. |
 | ☕ Copo flutuante + vapor dourado | Hero | [HeroArt.tsx](components/HeroArt.tsx) — o copo da logo em SVG, bolhas de vapor caramelo e fatias de bolo em gravidade zero e **parallax de mouse em 3 camadas** de profundidade. |
 | 🫧 Transições de scroll | todas as seções | [Reveal.tsx](components/ui/Reveal.tsx) — variantes `up` (mola suave), `gum` (estica suavemente) e `pop` (estoura no lugar) via `whileInView`. |
 | 🗂️ Filtros do cardápio | seção Cardápio | [Menu.tsx](components/Menu.tsx) — pill deslizante (`layoutId`) com degradê quente + reorganização fluida dos cards (`AnimatePresence` + `layout`). |
@@ -45,7 +45,7 @@ components/
   Hero.tsx          # título gigante + arte 2D animada
   HeroArt.tsx       # copo + vapor + gravidade zero + parallax
   Flagship.tsx      # carro-chefe com vídeo de fundo + marquees
-  BananaRain.tsx    # cascata 2D de grãos de café nas laterais
+  CoffeeRain.tsx    # cascata 2D de grãos de café nas laterais
   Menu.tsx          # filtros + grid animado
   ProductCard.tsx   # card com micro-interações
   About.tsx         # história + fotos em blob + botão do mapa

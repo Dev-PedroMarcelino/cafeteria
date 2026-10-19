@@ -4,7 +4,7 @@ import Flagship from "@/components/Flagship";
 import Menu from "@/components/Menu";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
-import BananaRain from "@/components/BananaRain";
+import CoffeeRain from "@/components/CoffeeRain";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import IntroProvider from "@/components/IntroProvider";
 import CartProvider from "@/components/cart/CartProvider";
@@ -17,8 +17,8 @@ export default function Home() {
     <IntroProvider>
       <CartProvider>
         <main className="relative">
-          {/* Trilhos laterais com a chuva de bananas (desktop) */}
-          <BananaRain />
+          {/* Trilhos laterais com grãos de café caindo (desktop) */}
+          <CoffeeRain />
 
           <Header />
           <Hero />

@@ -7,16 +7,18 @@ import { useId } from "react";
    ──────────────────────────────────────────────────────────── */
 
 const fills: Record<string, [string, string]> = {
-  banana: ["var(--color-banana)", "var(--color-banana)"],
-  bubblegum: ["var(--color-bubblegum)", "var(--color-bubblegum)"],
-  stripes: ["var(--color-banana)", "var(--color-bubblegum)"],
+  caramel: ["var(--color-caramel)", "var(--color-caramel)"],
+  terracotta: ["var(--color-terracotta)", "var(--color-terracotta)"],
+  stripes: ["var(--color-caramel)", "var(--color-terracotta)"],
+  banana: ["var(--color-caramel)", "var(--color-caramel)"],
+  bubblegum: ["var(--color-terracotta)", "var(--color-terracotta)"],
 };
 
 export default function ScallopDivider({
   variant = "stripes",
   className,
 }: {
-  variant?: "banana" | "bubblegum" | "stripes";
+  variant?: "caramel" | "terracotta" | "stripes" | "banana" | "bubblegum";
   className?: string;
 }) {
   const patternId = useId();

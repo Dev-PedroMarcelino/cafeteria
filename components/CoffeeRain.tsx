@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import CoffeeCupSvg from "./art/CoffeeCupSvg";
 
 /* ────────────────────────────────────────────────────────────
-   Chuva de Xícaras — trilhos laterais (≤5vw cada) com
+   Chuva de Café — trilhos laterais (≤5vw cada) com
    xícaras e grãos SVG caindo em loop suave, cada um com
    tamanho, ritmo, balanço e giro próprios. Puro CSS transform
    via Framer Motion: leve, sem WebGL, desligada no mobile e
@@ -108,7 +108,7 @@ function Rail({ side, drops }: { side: "left" | "right"; drops: Drop[] }) {
   );
 }
 
-export default function BananaRain() {
+export default function CoffeeRain() {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) return null;

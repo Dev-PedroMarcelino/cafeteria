@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { site, whatsappOrderUrl } from "@/lib/site";
 import Reveal from "./ui/Reveal";
-import BananaBurst from "./ui/BananaBurst";
+import CoffeeBurst from "./ui/CoffeeBurst";
 import ScooterSvg from "./art/ScooterSvg";
 
 const socials = [
@@ -196,7 +196,7 @@ export default function Footer() {
                 className="relative inline-block cursor-pointer align-baseline"
               >
                 ☕
-                <BananaBurst trigger={heartBurst} distance={48} />
+                <CoffeeBurst trigger={heartBurst} distance={48} />
               </motion.button>{" "}
               e muita cafeína.
             </p>
