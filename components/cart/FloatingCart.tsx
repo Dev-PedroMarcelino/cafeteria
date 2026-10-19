@@ -48,7 +48,7 @@ export default function FloatingCart() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="absolute -right-1.5 -top-1.5 flex h-6 min-w-6 items-center justify-center rounded-full bg-bubblegum px-1.5 font-display text-xs font-bold text-white ring-2 ring-cream"
+            className="absolute -right-1.5 -top-1.5 flex h-6 min-w-6 items-center justify-center rounded-full bg-terracotta px-1.5 font-display text-xs font-bold text-cream ring-2 ring-cream shadow-sm"
           >
             {count}
           </motion.span>

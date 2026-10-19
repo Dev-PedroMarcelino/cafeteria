@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 import Reveal from "./ui/Reveal";
 import ScallopDivider from "./ui/ScallopDivider";
 import Floaty from "./ui/Floaty";
-import BananaSvg from "./art/BananaSvg";
+import CoffeeCupSvg from "./art/CoffeeCupSvg";
 import CakeSliceSvg from "./art/CakeSliceSvg";
 
 export default function About() {
@@ -24,18 +24,18 @@ export default function About() {
   return (
     <section id="sobre" className="relative overflow-hidden pb-24 pt-14 sm:pb-32 sm:pt-20">
       {/* Faixa diagonal de cor ao fundo */}
-      <div className="absolute inset-0 -skew-y-3 scale-110 bg-gradient-to-br from-banana/15 via-cream to-bubblegum/15" />
+      <div className="absolute inset-0 -skew-y-3 scale-110 bg-gradient-to-br from-banana/10 via-cream to-terracotta/10" />
 
       {/* Toldo abrindo a seção */}
       <ScallopDivider className="absolute inset-x-0 top-0" />
 
       {/* Guloseimas flutuando nas margens */}
       <div className="pointer-events-none absolute inset-0 hidden sm:block" aria-hidden>
-        <Floaty className="left-[3%] top-[12%] w-12" duration={6.5} rotate={12} animate={!reduceMotion}>
-          <BananaSvg className="w-full opacity-70" />
+        <Floaty className="left-[3%] top-[12%] w-10" duration={6.5} rotate={12} animate={!reduceMotion}>
+          <CoffeeCupSvg className="w-full opacity-50" />
         </Floaty>
         <Floaty className="bottom-[8%] right-[4%] w-14" duration={7.2} delay={1.1} rotate={7} animate={!reduceMotion}>
-          <CakeSliceSvg className="w-full opacity-80" />
+          <CakeSliceSvg className="w-full opacity-60" />
         </Floaty>
       </div>
 
@@ -47,7 +47,7 @@ export default function About() {
               <div className="blob-mask blob-breathe relative h-full w-full">
                 <Image
                   src="/midia/fachada.jpg"
-                  alt="Fachada do Café Banana em Leme - SP"
+                  alt="Fachada do Café da Praça em Leme - SP"
                   fill
                   sizes="(max-width: 1024px) 85vw, 45vw"
                   className="object-cover"
@@ -65,7 +65,7 @@ export default function About() {
               <div className="relative h-full w-full overflow-hidden rounded-full">
                 <Image
                   src="/midia/mesa-completa.jpg"
-                  alt="Mesa completa de café da manhã no Café Banana"
+                  alt="Mesa completa de café da manhã no Café da Praça"
                   fill
                   sizes="(max-width: 1024px) 40vw, 22vw"
                   className="object-cover"
@@ -89,10 +89,10 @@ export default function About() {
                   <path id="circlePath" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
                 </defs>
                 <text className="fill-cocoa font-display text-[11.5px] font-bold uppercase tracking-[0.18em]">
-                  <textPath href="#circlePath">• Café Banana • Leme SP • Desde sempre </textPath>
+                  <textPath href="#circlePath">• Café da Praça • Leme SP • Desde sempre </textPath>
                 </text>
                 <text x="50" y="58" textAnchor="middle" className="text-[26px]">
-                  🍌
+                  ☕
                 </text>
               </svg>
             </motion.div>
@@ -103,14 +103,14 @@ export default function About() {
         <div className="mt-8 lg:mt-0">
           <Reveal variant="gum">
             <h2 className="font-display text-4xl font-bold leading-tight sm:text-5xl">
-              Um cantinho <span className="text-brand-gradient">amarelo e rosa</span> no coração
+              Um cantinho <span className="text-brand-gradient">acolhedor e artesanal</span> no coração
               de Leme
             </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
             <p className="mt-6 text-lg leading-relaxed text-cocoa/75">
-              O Café Banana nasceu de uma ideia simples: juntar o café passado na hora, o cheiro
+              O Café da Praça nasceu de uma ideia simples: juntar o café passado na hora, o cheiro
               de bolo saindo do forno e aquele acolhimento de interior que só {site.city} tem.
             </p>
           </Reveal>
@@ -129,7 +129,7 @@ export default function About() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.96, y: 1 }}
-              className="mt-10 flex w-full max-w-sm items-center justify-center gap-3 rounded-full bg-gradient-to-r from-banana via-banana to-bubblegum px-8 py-4 font-display text-lg font-semibold text-cocoa shadow-[0_10px_0_0_var(--color-banana-deep),0_24px_48px_-12px_rgb(255_107_133/0.5)] transition-shadow hover:shadow-[0_6px_0_0_var(--color-banana-deep),0_28px_56px_-12px_rgb(255_107_133/0.65)]"
+              className="mt-10 flex w-full max-w-sm items-center justify-center gap-3 rounded-full bg-gradient-to-r from-banana via-banana to-terracotta px-8 py-4 font-display text-lg font-semibold text-cream shadow-[0_10px_0_0_var(--color-banana-deep),0_24px_48px_-12px_rgb(196_115_92/0.5)] transition-shadow hover:shadow-[0_6px_0_0_var(--color-banana-deep),0_28px_56px_-12px_rgb(196_115_92/0.65)]"
             >
               <motion.span
                 className="text-2xl"

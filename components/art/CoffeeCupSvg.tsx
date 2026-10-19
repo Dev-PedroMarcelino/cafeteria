@@ -33,13 +33,13 @@ export default function CoffeeCupSvg({ className }: { className?: string }) {
         Coffee
       </text>
 
-      {/* Detalhes rosa (pontinhos da marca) */}
-      <circle cx="52" cy="72" r="2.2" fill="#ff91a4" />
-      <circle cx="70" cy="76" r="2.2" fill="#ff91a4" />
-      <circle cx="88" cy="72" r="2.2" fill="#ff91a4" />
-      <circle cx="56" cy="140" r="2.2" fill="#ff91a4" />
-      <circle cx="70" cy="144" r="2.2" fill="#ff91a4" />
-      <circle cx="84" cy="140" r="2.2" fill="#ff91a4" />
+      {/* Detalhes dourados da marca */}
+      <circle cx="52" cy="72" r="2.2" fill="#c9a84c" />
+      <circle cx="70" cy="76" r="2.2" fill="#c9a84c" />
+      <circle cx="88" cy="72" r="2.2" fill="#c9a84c" />
+      <circle cx="56" cy="140" r="2.2" fill="#c9a84c" />
+      <circle cx="70" cy="144" r="2.2" fill="#c9a84c" />
+      <circle cx="84" cy="140" r="2.2" fill="#c9a84c" />
     </svg>
   );
 }

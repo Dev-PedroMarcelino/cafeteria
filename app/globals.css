@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Paleta Café Banana ─────────────────────────────── */
-  --color-banana: #ffe135;
-  --color-banana-dark: #f0c400;
-  --color-banana-deep: #d9a800;
-  --color-bubblegum: #ff91a4;
-  --color-bubblegum-dark: #ff6b85;
-  --color-bubblegum-deep: #e84a68;
-  --color-cream: #fffbf0;
-  --color-cocoa: #4a2c17;
-  --color-cocoa-dark: #2e1a0c;
+  /* ── Paleta Café da Praça ─────────────────────────────── */
+  --color-banana: #c8956c;
+  --color-banana-dark: #a67748;
+  --color-banana-deep: #8b5e34;
+  --color-bubblegum: #d4a574;
+  --color-bubblegum-dark: #b8854e;
+  --color-bubblegum-deep: #9a6b38;
+  --color-cream: #faf6f0;
+  --color-cocoa: #3a2518;
+  --color-cocoa-dark: #1e110a;
 
-  --shadow-card: 0 10px 40px -12px rgb(74 44 23 / 0.14);
-  --shadow-card-hover: 0 24px 60px -16px rgb(255 107 133 / 0.5);
-  --shadow-glow-pink: 0 0 0 3px rgb(255 145 164 / 0.55), 0 18px 50px -12px rgb(255 107 133 / 0.6);
+  /* Cores premium extras */
+  --color-amber: #d4a044;
+  --color-terracotta: #c4735c;
+  --color-sage: #8a9a7b;
+  --color-gold: #c9a84c;
+
+  --shadow-card: 0 10px 40px -12px rgb(58 37 24 / 0.14);
+  --shadow-card-hover: 0 24px 60px -16px rgb(200 149 108 / 0.45);
+  --shadow-glow-pink: 0 0 0 3px rgb(200 149 108 / 0.45), 0 18px 50px -12px rgb(196 115 92 / 0.5);
 
   --radius-blob: 62% 38% 55% 45% / 48% 60% 40% 52%;
 }
@@ -48,34 +54,34 @@ button {
 
 ::selection {
   background-color: var(--color-banana);
-  color: var(--color-cocoa);
+  color: var(--color-cream);
 }
 
 /* Scrollbar com a cara da marca — só em desktop (mouse); no celular
    ela vira uma barra fixa esquisita em vez do overlay nativo */
 @media (hover: hover) and (pointer: fine) {
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     background: var(--color-cream);
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--color-banana), var(--color-bubblegum));
+    background: linear-gradient(180deg, var(--color-banana), var(--color-terracotta));
     border-radius: 999px;
-    border: 3px solid var(--color-cream);
+    border: 2px solid var(--color-cream);
   }
 }
 
 /* ── Utilidades da marca ──────────────────────────────── */
 
-/* Moldura em degradê amarelo→rosa (borda dinâmica das fotos) */
+/* Moldura em degradê dourado→terracota (borda dinâmica das fotos) */
 .gradient-frame {
   position: relative;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--color-banana) 0%, var(--color-bubblegum) 55%, var(--color-bubblegum-dark) 100%);
+  padding: 4px;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-banana) 40%, var(--color-terracotta) 100%);
   background-size: 200% 200%;
-  animation: frame-shift 6s ease-in-out infinite;
+  animation: frame-shift 8s ease-in-out infinite;
 }
 
 @keyframes frame-shift {
@@ -96,7 +102,7 @@ button {
 
 /* Blob "respirando" — a forma orgânica muda devagar */
 .blob-breathe {
-  animation: blob-morph 9s ease-in-out infinite;
+  animation: blob-morph 12s ease-in-out infinite;
 }
 
 @keyframes blob-morph {
@@ -124,11 +130,11 @@ button {
   background: linear-gradient(
     115deg,
     transparent 32%,
-    rgb(255 255 255 / 0.55) 50%,
+    rgb(255 255 255 / 0.45) 50%,
     transparent 68%
   );
   transform: translateX(-100%);
-  animation: shine-sweep 4s ease-in-out infinite;
+  animation: shine-sweep 5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -145,16 +151,32 @@ button {
 
 /* Texto com degradê da marca */
 .text-brand-gradient {
-  background: linear-gradient(92deg, var(--color-banana-deep) 0%, var(--color-bubblegum-deep) 70%);
+  background: linear-gradient(92deg, var(--color-banana-deep) 0%, var(--color-terracotta) 70%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Fundo pontilhado sutil (remete à logo) */
+/* Fundo pontilhado sutil (remete à textura artesanal) */
 .dotted-bg {
-  background-image: radial-gradient(rgb(255 145 164 / 0.28) 1.5px, transparent 1.5px);
-  background-size: 26px 26px;
+  background-image: radial-gradient(rgb(200 149 108 / 0.2) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* Efeito de grão de textura artesanal */
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Glow suave para elementos de destaque */
+.warm-glow {
+  box-shadow: 0 0 60px -12px rgb(200 149 108 / 0.3),
+              0 0 120px -24px rgb(196 115 92 / 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {

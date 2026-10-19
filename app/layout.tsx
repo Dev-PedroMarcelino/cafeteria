@@ -16,13 +16,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Café Banana — Cafeteria em Leme/SP",
+  metadataBase: new URL("https://cafedapraca.com.br"),
+  title: "Café da Praça — Sabor & Aconchego em Leme/SP",
   description:
-    "O sabor que Leme inteira ama. Cafés especiais, bolos caseiros, salgados e os famosos especiais de banana. Cafeteria e delivery em Leme - SP.",
+    "O sabor que Leme inteira ama. Cafés especiais, bolos caseiros, salgados artesanais e o melhor café da cidade. Cafeteria e delivery em Leme - SP.",
   icons: { icon: "/midia/logo.png", apple: "/midia/logo.png" },
   openGraph: {
-    title: "Café Banana — Cafeteria em Leme/SP",
-    description: "Café, conforto e a melhor experiência da cidade. Sinta a vibe.",
+    title: "Café da Praça — Sabor & Aconchego em Leme/SP",
+    description: "Café, conforto e a melhor experiência da cidade. Sabor & Aconchego.",
     images: ["/midia/logo.png"],
     locale: "pt_BR",
     type: "website",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFE135",
+  themeColor: "#3a2518",
   width: "device-width",
   initialScale: 1,
 };

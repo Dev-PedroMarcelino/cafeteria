@@ -14,7 +14,7 @@ import { whatsappOrderUrl } from "@/lib/site";
    Botão flutuante de pedido — aparece depois do hero com um
    "pop de figurinha", chama o olho com um balancinho a cada
    7s e um balãozinho de fala (1x por sessão). Verde WhatsApp
-   para reconhecimento imediato, anel banana para ser da casa.
+   para reconhecimento imediato, anel dourado para ser da casa.
    ──────────────────────────────────────────────────────────── */
 
 export default function FloatingWhatsApp() {
@@ -64,7 +64,7 @@ export default function FloatingWhatsApp() {
                 ? undefined
                 : { duration: 0.9, repeat: Infinity, repeatDelay: 7, ease: "easeInOut" }
             }
-            className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_32px_-8px_rgb(255_107_133/0.7)] ring-4 ring-banana"
+            className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_32px_-8px_rgb(200_149_108/0.6)] ring-4 ring-banana"
           >
             {/* Ping de chegada (2 ciclos, some sozinho) */}
             {!reduceMotion && (
@@ -93,7 +93,7 @@ export default function FloatingWhatsApp() {
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className="relative rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 font-display text-sm font-semibold text-cocoa shadow-card ring-1 ring-cocoa/10"
               >
-                Bateu a fome? Peça aqui! 🍌
+                Bateu a fome? Peça aqui! ☕
                 <span className="absolute -left-1.5 bottom-2 h-3 w-3 rotate-45 bg-white ring-1 ring-cocoa/10 [clip-path:polygon(0_0,0_100%,100%_100%)]" />
               </motion.button>
             )}

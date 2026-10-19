@@ -1,8 +1,8 @@
 {
-  "name": "cafe-banana",
+  "name": "cafe-da-praca",
   "version": "1.0.0",
   "private": true,
-  "description": "Landing page e cardápio digital do Café Banana — Leme/SP",
+  "description": "Landing page e cardápio digital do Café da Praça — Leme/SP",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -141,16 +141,16 @@ export default function CartDrawer() {
                 <div className="dotted-bg flex-1 space-y-3 overflow-y-auto px-5 py-4">
                   {lines.length === 0 ? (
                     <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
-                      <span className="text-5xl">🍌</span>
+                      <span className="text-5xl">☕</span>
                       <p className="font-display text-lg font-semibold text-cocoa/60">
                         Seu carrinho está vazio…
                         <br />
-                        que tal um docinho?
+                        que tal um café quentinho?
                       </p>
                       <button
                         type="button"
                         onClick={closeDrawer}
-                        className="mt-2 rounded-full bg-gradient-to-r from-banana to-bubblegum px-6 py-3 font-display font-bold text-cocoa"
+                        className="mt-2 rounded-full bg-gradient-to-r from-banana via-banana to-terracotta px-6 py-3 font-display font-bold text-cream shadow-md hover:brightness-105"
                       >
                         Ver cardápio 🍰
                       </button>
@@ -208,7 +208,7 @@ export default function CartDrawer() {
                                 +
                               </button>
                             </div>
-                            <span className="font-display text-sm font-bold text-bubblegum-deep">
+                            <span className="font-display text-sm font-bold text-terracotta">
                               {formatPrice(lineTotal(line))}
                             </span>
                           </div>
@@ -230,7 +230,7 @@ export default function CartDrawer() {
                       type="button"
                       onClick={() => setStep("form")}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full rounded-full bg-gradient-to-r from-banana to-bubblegum py-4 font-display text-lg font-bold text-cocoa shadow-[0_10px_28px_-8px_rgb(255_107_133/0.6)]"
+                      className="w-full rounded-full bg-gradient-to-r from-banana via-banana to-terracotta py-4 font-display text-lg font-bold text-cream shadow-lg hover:brightness-105"
                     >
                       Continuar para entrega 🛵
                     </motion.button>
@@ -259,7 +259,7 @@ export default function CartDrawer() {
                         setCustomer((c) => ({ ...c, name: e.target.value }))
                       }
                       placeholder="Como podemos te chamar?"
-                      className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-bubblegum focus:outline-none"
+                      className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-banana focus:outline-none"
                     />
                   </div>
 
@@ -279,7 +279,7 @@ export default function CartDrawer() {
                         setCustomer((c) => ({ ...c, address: e.target.value }))
                       }
                       placeholder="Rua, número, bairro e ponto de referência"
-                      className="mt-2 w-full resize-none rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-bubblegum focus:outline-none"
+                      className="mt-2 w-full resize-none rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-banana focus:outline-none"
                     />
                   </div>
 
@@ -302,7 +302,7 @@ export default function CartDrawer() {
                             whileTap={{ scale: 0.95 }}
                             className={`rounded-2xl border-2 bg-white px-2 py-3 text-center font-display text-sm font-bold transition-colors ${
                               active
-                                ? "border-bubblegum text-cocoa shadow-[0_6px_20px_-8px_rgb(255_107_133/0.5)]"
+                                ? "border-banana bg-banana/10 text-cocoa shadow-[0_6px_20px_-8px_rgb(200_149_108/0.4)]"
                                 : "border-cocoa/10 text-cocoa/55"
                             }`}
                           >
@@ -331,13 +331,13 @@ export default function CartDrawer() {
                           setCustomer((c) => ({ ...c, changeFor: e.target.value }))
                         }
                         placeholder="Ex.: 50,00 (deixe vazio se não precisar)"
-                        className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-bubblegum focus:outline-none"
+                        className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-banana focus:outline-none"
                       />
                     </div>
                   )}
 
                   <p className="rounded-2xl bg-banana/20 px-4 py-3 text-sm text-cocoa/70">
-                    🍌 Ao enviar, seu pedido abre no WhatsApp do Café Banana — é lá
+                    ☕ Ao enviar, seu pedido abre no WhatsApp do Café da Praça — é lá
                     que a gente confirma os valores e o tempo de entrega.
                   </p>
                 </div>
@@ -388,7 +388,7 @@ export default function CartDrawer() {
                 <button
                   type="button"
                   onClick={closeDrawer}
-                  className="mt-2 rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-3.5 font-display font-bold text-cocoa"
+                  className="mt-2 rounded-full bg-gradient-to-r from-banana via-banana to-terracotta px-8 py-3.5 font-display font-bold text-cream shadow-md hover:brightness-105"
                 >
                   Fechar
                 </button>

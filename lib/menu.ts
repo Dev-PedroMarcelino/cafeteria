@@ -17,7 +17,7 @@ export const categories: { id: Category | "todos"; label: string; emoji: string 
   { id: "cafes", label: "Cafés", emoji: "☕" },
   { id: "doces", label: "Doces", emoji: "🍰" },
   { id: "salgados", label: "Salgados", emoji: "🥟" },
-  { id: "banana", label: "Especiais de Banana", emoji: "🍌" },
+  { id: "banana", label: "Especiais da Casa", emoji: "⭐" },
 ];
 
 export const menu: MenuItem[] = [
@@ -140,11 +140,11 @@ export const menu: MenuItem[] = [
     flagship: true,
   },
 
-  // ── Especiais de Banana ────────────────────────────────
+  // ── Especiais da Casa ───────────────────────────────────
   {
     id: "combo-banana",
-    name: "Combo Café Banana",
-    description: "Café especial + doce da casa. A dupla que deu nome ao café.",
+    name: "Combo Café da Praça",
+    description: "Café especial + doce da casa. A combinação favorita dos nossos clientes.",
     price: 24.9,
     image: "/midia/combo.jpg",
     category: "banana",

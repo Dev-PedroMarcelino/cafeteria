@@ -114,10 +114,10 @@ export default function Flagship() {
         )}
 
         {/* Véus para legibilidade */}
-        <div className="absolute inset-0 bg-cocoa-dark/45 sm:bg-cocoa-dark/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-cocoa-dark/90 via-cocoa-dark/45 to-cocoa-dark/15" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cocoa-dark/80 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-cocoa-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-cocoa-dark/50 sm:bg-cocoa-dark/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cocoa-dark/90 via-cocoa-dark/50 to-cocoa-dark/15" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cocoa-dark/85 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-cocoa-dark/65 to-transparent" />
 
         {/* Conteúdo */}
         <motion.div
@@ -161,7 +161,7 @@ export default function Flagship() {
                       {[0, 1].map((i) => (
                         <motion.span
                           key={i}
-                          className="absolute h-3 w-3 rounded-full bg-bubblegum/80 blur-[3px]"
+                          className="absolute h-3 w-3 rounded-full bg-banana/80 blur-[3px]"
                           style={{ left: i === 0 ? -12 : 2 }}
                           animate={{ y: [0, -24], opacity: [0, 0.9, 0], scale: [0.6, 1.4] }}
                           transition={{
@@ -181,7 +181,7 @@ export default function Flagship() {
                   onClick={() => openModal(item)}
                   whileHover={{ scale: 1.06, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="shine w-full rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-4 text-center font-display text-lg font-semibold text-cocoa shadow-[0_16px_40px_-10px_rgb(255_145_164/0.6)] sm:w-auto"
+                  className="shine w-full rounded-full bg-gradient-to-r from-banana to-terracotta px-8 py-4 text-center font-display text-lg font-semibold text-cream shadow-[0_16px_40px_-10px_rgb(196_115_92/0.5)] sm:w-auto"
                 >
                   Pedir o Carro-Chefe
                 </motion.button>
@@ -189,7 +189,7 @@ export default function Flagship() {
                   href="#cardapio"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-display font-semibold text-cream/80 underline decoration-bubblegum decoration-2 underline-offset-8 transition-colors hover:text-cream"
+                  className="font-display font-semibold text-cream/80 underline decoration-banana decoration-2 underline-offset-8 transition-colors hover:text-cream"
                 >
                   Ver cardápio completo
                 </motion.a>

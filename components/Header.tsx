@@ -49,7 +49,7 @@ export default function Header() {
         transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.15 }}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled || menuOpen
-            ? "bg-white/75 shadow-[0_8px_32px_-12px_rgb(74_44_23/0.18)] backdrop-blur-xl"
+            ? "bg-cream/80 shadow-[0_8px_32px_-12px_rgb(58_37_24/0.18)] backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
@@ -63,14 +63,13 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
           >
             <motion.span
-              className="relative block h-10 w-10 overflow-hidden rounded-full ring-2 ring-banana sm:h-12 sm:w-12"
-              animate={{ rotate: [0, -6, 6, 0] }}
+              className="relative block h-10 w-10 overflow-hidden rounded-full ring-2 ring-banana shadow-lg sm:h-12 sm:w-12"
               whileHover={{ rotate: 12 }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <Image
                 src="/midia/logo.png"
-                alt="Logo Café Banana"
+                alt="Logo Café da Praça"
                 fill
                 sizes="48px"
                 className="object-cover"
@@ -78,8 +77,8 @@ export default function Header() {
               />
             </motion.span>
             <span className="font-display text-lg font-semibold leading-none sm:text-xl">
-              <span className="text-bubblegum-deep">Café</span>{" "}
-              <span className="text-banana-deep">Banana</span>
+              <span className="text-cocoa">Café</span>{" "}
+              <span className="text-brand-gradient">da Praça</span>
             </span>
           </motion.a>
 
@@ -89,7 +88,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-display text-sm font-medium text-cocoa/80 transition-colors hover:text-bubblegum-deep"
+                className="font-display text-sm font-medium text-cocoa/70 transition-colors hover:text-banana-deep"
               >
                 {link.label}
               </a>
@@ -101,21 +100,21 @@ export default function Header() {
             <motion.a
               href="#cardapio"
               onClick={() => setMenuOpen(false)}
-              className="whitespace-nowrap rounded-full bg-gradient-to-r from-banana to-bubblegum px-3.5 py-2.5 font-display text-sm font-semibold text-cocoa sm:px-6 sm:py-3"
+              className="whitespace-nowrap rounded-full bg-gradient-to-r from-banana to-terracotta px-3.5 py-2.5 font-display text-sm font-semibold text-cream sm:px-6 sm:py-3"
               animate={{
-                scale: [1, 1.05, 1],
+                scale: [1, 1.04, 1],
                 boxShadow: [
-                  "0 4px 20px -4px rgb(255 145 164 / 0.45)",
-                  "0 8px 32px -4px rgb(255 107 133 / 0.75)",
-                  "0 4px 20px -4px rgb(255 145 164 / 0.45)",
+                  "0 4px 20px -4px rgb(200 149 108 / 0.4)",
+                  "0 8px 32px -4px rgb(196 115 92 / 0.6)",
+                  "0 4px 20px -4px rgb(200 149 108 / 0.4)",
                 ],
               }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.94 }}
             >
-              <span className="sm:hidden">Pedir 🍌</span>
-              <span className="hidden sm:inline">Fazer Pedido 🍌</span>
+              <span className="sm:hidden">Pedir ☕</span>
+              <span className="hidden sm:inline">Fazer Pedido ☕</span>
             </motion.a>
 
             {/* Hambúrguer (mobile) */}
@@ -127,7 +126,7 @@ export default function Header() {
               aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
               whileTap={{ scale: 0.88 }}
               animate={menuOpen ? "open" : "closed"}
-              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full bg-white/80 ring-1 ring-cocoa/10 md:hidden"
+              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full bg-cream/80 ring-1 ring-cocoa/10 md:hidden"
             >
               <motion.span
                 variants={topLine}
@@ -151,7 +150,7 @@ export default function Header() {
         {/* Barra de progresso da página */}
         <motion.div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-banana to-bubblegum"
+          className="absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-banana via-terracotta to-banana-deep"
           style={{ scaleX: scrollYProgress, opacity: scrolled && !menuOpen ? 1 : 0 }}
         />
       </motion.header>

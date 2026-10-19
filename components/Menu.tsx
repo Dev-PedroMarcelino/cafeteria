@@ -49,14 +49,14 @@ export default function Menu() {
                 onClick={() => setFilter(cat.id)}
                 whileTap={{ scale: 0.92 }}
                 className={`relative shrink-0 snap-start rounded-full px-5 py-3 font-display text-sm font-semibold transition-colors duration-300 ${
-                  active ? "text-cocoa" : "text-cocoa/55 hover:text-cocoa"
+                  active ? "text-cream font-bold" : "text-cocoa/65 hover:text-cocoa"
                 }`}
               >
                 {active && (
                   <motion.span
                     layoutId="filter-pill"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-banana to-bubblegum shadow-[0_8px_24px_-8px_rgb(255_107_133/0.6)]"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-banana via-banana to-terracotta shadow-[0_8px_24px_-8px_rgb(196_115_92/0.5)]"
                   />
                 )}
                 <span className="relative z-10 inline-flex items-center gap-1.5">

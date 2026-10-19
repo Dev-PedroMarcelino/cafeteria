@@ -95,11 +95,11 @@ export default function Footer() {
             >
               <ScooterSvg className="w-full" />
             </motion.div>
-            {/* Poeirinha rosa atrás */}
+            {/* Poeirinha quente atrás */}
             {[0, 1].map((i) => (
               <motion.span
                 key={i}
-                className="absolute top-1/2 h-3 w-3 rounded-full bg-bubblegum/60 blur-[2px]"
+                className="absolute top-1/2 h-3 w-3 rounded-full bg-banana/60 blur-[2px]"
                 style={{ left: i === 0 ? -10 : -20 }}
                 animate={{ opacity: [0, 0.8, 0], scale: [0.5, 1.2] }}
                 transition={{ duration: 0.7, repeat: Infinity, delay: i * 0.25 }}
@@ -114,22 +114,22 @@ export default function Footer() {
         <Reveal>
           <div>
             <div className="flex items-center gap-3">
-              <span className="relative block h-14 w-14 overflow-hidden rounded-full ring-2 ring-banana">
+              <span className="relative block h-14 w-14 overflow-hidden rounded-full ring-2 ring-banana shadow-lg">
                 <Image
                   src="/midia/logo.png"
-                  alt="Logo Café Banana"
+                  alt="Logo Café da Praça"
                   fill
                   sizes="56px"
                   className="object-cover"
                 />
               </span>
               <span className="font-display text-2xl font-semibold">
-                <span className="text-bubblegum">Café</span>{" "}
-                <span className="text-banana">Banana</span>
+                <span className="text-banana">Café</span>{" "}
+                <span className="text-bubblegum">da Praça</span>
               </span>
             </div>
             <p className="mt-4 max-w-xs text-cream/70">
-              Cafeteria &amp; delivery em {site.city}. O sabor que a cidade inteira ama. 💛🩷
+              Cafeteria &amp; delivery em {site.city}. O sabor que a cidade inteira ama. ☕✨
             </p>
 
             {/* Redes sociais com "pulinho" */}
@@ -144,7 +144,7 @@ export default function Footer() {
                   whileHover={{ y: -8, rotate: [0, -8, 8, 0] }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 12 }}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-banana transition-colors hover:bg-bubblegum hover:text-cocoa"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-banana transition-colors hover:bg-banana hover:text-cocoa"
                 >
                   {social.icon}
                 </motion.a>
@@ -182,20 +182,20 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-bubblegum px-6 py-3 font-display font-semibold text-cocoa shadow-lg"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-banana to-terracotta px-6 py-3 font-display font-semibold text-cream shadow-lg"
             >
               Pedir pelo WhatsApp
             </motion.a>
             <p className="mt-8 text-sm text-cream/40">
-              © {new Date().getFullYear()} Café Banana — {site.city}. Feito com{" "}
+              © {new Date().getFullYear()} Café da Praça — {site.city}. Feito com{" "}
               <motion.button
                 type="button"
                 onClick={() => setHeartBurst((b) => b + 1)}
                 whileTap={{ scale: 1.4 }}
-                aria-label="Um carinho do Café Banana"
+                aria-label="Um carinho do Café da Praça"
                 className="relative inline-block cursor-pointer align-baseline"
               >
-                💛
+                ☕
                 <BananaBurst trigger={heartBurst} distance={48} />
               </motion.button>{" "}
               e muita cafeína.

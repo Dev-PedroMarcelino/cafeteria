@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import BananaSvg from "./art/BananaSvg";
 
 /* ────────────────────────────────────────────────────────────
    Intro de abertura — cortina de marca que cobre o primeiro
@@ -31,9 +30,9 @@ function SplashOverlay() {
       aria-hidden
     >
       {/* Textura e brilhos da marca */}
-      <div className="dotted-bg absolute inset-0 opacity-50" />
-      <div className="absolute left-1/4 top-1/4 h-80 w-80 -translate-x-1/2 rounded-full bg-banana/35 blur-[100px]" />
-      <div className="absolute bottom-1/4 right-1/4 h-80 w-80 translate-x-1/2 rounded-full bg-bubblegum/35 blur-[100px]" />
+      <div className="dotted-bg absolute inset-0 opacity-30" />
+      <div className="absolute left-1/4 top-1/4 h-80 w-80 -translate-x-1/2 rounded-full bg-banana/25 blur-[100px]" />
+      <div className="absolute bottom-1/4 right-1/4 h-80 w-80 translate-x-1/2 rounded-full bg-terracotta/20 blur-[100px]" />
 
       {/* Borda curva que "escorre" quando a cortina sobe */}
       <svg
@@ -45,22 +44,22 @@ function SplashOverlay() {
       </svg>
 
       <div className="relative flex flex-col items-center">
-        {/* Bananas escoltando a logo */}
+        {/* Vaporzinho de café nos cantos */}
         <motion.div
-          className="absolute -left-20 top-2 w-12 sm:-left-28 sm:w-16"
-          initial={{ opacity: 0, x: 24, rotate: -30 }}
-          animate={{ opacity: 1, x: 0, rotate: -12 }}
+          className="absolute -left-16 top-6 text-3xl sm:-left-24"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.7, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.5 }}
         >
-          <BananaSvg className="w-full" />
+          ☕
         </motion.div>
         <motion.div
-          className="absolute -right-20 top-2 w-12 sm:-right-28 sm:w-16"
-          initial={{ opacity: 0, x: -24, rotate: 30 }}
-          animate={{ opacity: 1, x: 0, rotate: 12 }}
+          className="absolute -right-16 top-6 text-3xl sm:-right-24"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.7, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.58 }}
         >
-          <BananaSvg className="w-full -scale-x-100" />
+          ☕
         </motion.div>
 
         {/* Logo estourando */}
@@ -83,7 +82,7 @@ function SplashOverlay() {
         {/* Nome da marca */}
         <div className="mt-6 flex gap-3 font-display text-4xl font-bold sm:text-5xl">
           <motion.span
-            className="text-bubblegum-deep"
+            className="text-cocoa"
             initial={{ opacity: 0, y: 26, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.42 }}
@@ -91,12 +90,12 @@ function SplashOverlay() {
             Café
           </motion.span>
           <motion.span
-            className="text-banana-deep"
+            className="text-brand-gradient"
             initial={{ opacity: 0, y: 26, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.54 }}
           >
-            Banana
+            da Praça
           </motion.span>
         </div>
 
@@ -105,7 +104,7 @@ function SplashOverlay() {
           {[0, 1, 2].map((i) => (
             <motion.span
               key={i}
-              className="h-2.5 w-2.5 rounded-full bg-bubblegum"
+              className="h-2.5 w-2.5 rounded-full bg-banana"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0.3, 1, 0.3], y: [0, -8, 0] }}
               transition={{

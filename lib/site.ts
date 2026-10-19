@@ -1,9 +1,9 @@
 /**
- * Configurações centrais do Café Banana.
+ * Configurações centrais do Café da Praça.
  * ⚠️ Ajuste aqui: WhatsApp, endereço, horários e redes sociais.
  */
 export const site = {
-  name: "Café Banana",
+  name: "Café da Praça",
   city: "Leme - SP",
   whatsapp: "5519981057714",
   mapsUrl:
@@ -21,7 +21,7 @@ export const site = {
 
 export function whatsappOrderUrl(itemName?: string) {
   const text = itemName
-    ? `Olá, Café Banana! 🍌 Quero pedir: ${itemName}`
-    : "Olá, Café Banana! 🍌 Quero fazer um pedido!";
+    ? `Olá, Café da Praça! ☕ Quero pedir: ${itemName}`
+    : "Olá, Café da Praça! ☕ Quero fazer um pedido!";
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 }

@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { site, whatsappOrderUrl } from "@/lib/site";
-import BananaSvg from "./art/BananaSvg";
 
 /* ────────────────────────────────────────────────────────────
    Menu mobile — cortina cream que desce do topo com a mesma
@@ -64,13 +63,13 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
       }
     >
       {/* Textura e brilhos da marca (mesma linguagem do splash) */}
-      <div className="dotted-bg absolute inset-0 opacity-50" aria-hidden />
+      <div className="dotted-bg absolute inset-0 opacity-30" aria-hidden />
       <div
-        className="absolute left-0 top-1/4 h-64 w-64 -translate-x-1/2 rounded-full bg-banana/35 blur-3xl"
+        className="absolute left-0 top-1/4 h-64 w-64 -translate-x-1/2 rounded-full bg-banana/25 blur-3xl"
         aria-hidden
       />
       <div
-        className="absolute bottom-1/4 right-0 h-64 w-64 translate-x-1/2 rounded-full bg-bubblegum/35 blur-3xl"
+        className="absolute bottom-1/4 right-0 h-64 w-64 translate-x-1/2 rounded-full bg-terracotta/20 blur-3xl"
         aria-hidden
       />
 
@@ -84,22 +83,22 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
         <path fill="currentColor" d="M0,0 C480,80 960,80 1440,0 L1440,0 L0,0 Z" />
       </svg>
 
-      {/* Bananas de escolta nos cantos */}
+      {/* Xícaras decorativas nos cantos */}
       <motion.div
-        className="absolute right-6 top-24 w-14"
+        className="absolute right-6 top-24 text-4xl"
         animate={reduceMotion ? undefined : { y: [0, -12, 0], rotate: [10, 22, 10] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       >
-        <BananaSvg className="w-full opacity-80" />
+        ☕
       </motion.div>
       <motion.div
-        className="absolute bottom-36 left-5 w-11"
+        className="absolute bottom-36 left-5 text-3xl"
         animate={reduceMotion ? undefined : { y: [0, -10, 0], rotate: [-18, -6, -18] }}
         transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
         aria-hidden
       >
-        <BananaSvg className="w-full -scale-x-100 opacity-70" />
+        🍰
       </motion.div>
 
       {/* Links de navegação */}
@@ -123,7 +122,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
             <motion.span whileTap={{ y: -8, rotate: -14 }} className="text-3xl">
               {link.emoji}
             </motion.span>
-            <span className="transition-colors group-hover:text-bubblegum-deep">
+            <span className="transition-colors group-hover:text-banana-deep">
               {link.label}
             </span>
           </motion.a>
@@ -142,12 +141,12 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
           target="_blank"
           rel="noopener noreferrer"
           whileTap={{ scale: 0.95 }}
-          className="w-full max-w-xs rounded-full bg-gradient-to-r from-banana to-bubblegum px-8 py-4 text-center font-display text-lg font-semibold text-cocoa shadow-[0_14px_36px_-10px_rgb(255_107_133/0.6)]"
+          className="w-full max-w-xs rounded-full bg-gradient-to-r from-banana to-terracotta px-8 py-4 text-center font-display text-lg font-semibold text-cream shadow-[0_14px_36px_-10px_rgb(196_115_92/0.6)]"
         >
-          Pedir no WhatsApp 🍌
+          Pedir no WhatsApp ☕
         </motion.a>
         <p className="font-display text-sm font-medium text-cocoa/50">
-          {site.name} — {site.city} 💛🩷
+          {site.name} — {site.city} ☕✨
         </p>
       </motion.div>
     </motion.div>

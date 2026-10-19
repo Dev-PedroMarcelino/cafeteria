@@ -11,18 +11,17 @@ import {
   type MotionValue,
 } from "framer-motion";
 import CoffeeCupSvg from "./art/CoffeeCupSvg";
-import BananaSvg from "./art/BananaSvg";
 import CakeSliceSvg from "./art/CakeSliceSvg";
 import BananaBurst from "./ui/BananaBurst";
 import Floaty from "./ui/Floaty";
 
 /* ────────────────────────────────────────────────────────────
-   Hero 2D — o copo da logo flutuando com vapor rosa, cercado
-   por bananas e fatias de bolo em "gravidade zero". O mouse
-   aplica parallax em três camadas de profundidade.
+   Hero 2D — o copo de café flutuando com vapor quente, cercado
+   por bolos e doces em "gravidade zero". O mouse aplica parallax
+   em três camadas de profundidade.
    ──────────────────────────────────────────────────────────── */
 
-/** Vapor rosa: bolhas desfocadas subindo do copo em loop. */
+/** Vapor quente: bolhas desfocadas subindo do copo em loop. */
 function Steam({ animate }: { animate: boolean }) {
   const puffs = [
     { size: 44, x: -20, duration: 4.2, delay: 0 },
@@ -38,7 +37,7 @@ function Steam({ animate }: { animate: boolean }) {
       {puffs.map((puff, i) => (
         <motion.span
           key={i}
-          className="absolute rounded-full bg-bubblegum blur-xl"
+          className="absolute rounded-full bg-banana blur-xl"
           style={{
             width: puff.size,
             height: puff.size,
@@ -46,7 +45,7 @@ function Steam({ animate }: { animate: boolean }) {
             top: -puff.size / 2,
           }}
           initial={{ y: 26, opacity: 0, scale: 0.5 }}
-          animate={{ y: [0, -170], opacity: [0, 0.8, 0], scale: [0.5, 1.6] }}
+          animate={{ y: [0, -170], opacity: [0, 0.6, 0], scale: [0.5, 1.6] }}
           transition={{
             duration: puff.duration,
             repeat: Infinity,
@@ -62,7 +61,7 @@ function Steam({ animate }: { animate: boolean }) {
 /** Estrelinha que pisca (detalhe da marca). */
 function Sparkle({
   className,
-  color = "#ffd93d",
+  color = "#c9a84c",
   delay = 0,
   animate,
 }: {
@@ -138,19 +137,19 @@ export default function HeroArt() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-sm sm:max-w-md lg:max-w-lg" aria-hidden>
       {/* Glow de fundo da composição */}
-      <div className="absolute inset-[12%] rounded-full bg-gradient-to-br from-banana/25 to-bubblegum/25 blur-3xl" />
+      <div className="absolute inset-[12%] rounded-full bg-gradient-to-br from-banana/20 to-terracotta/15 blur-3xl" />
 
       {/* ── Camada do fundo: itens pequenos e distantes ── */}
       <ParallaxLayer mx={mx} my={my} depth={-0.6}>
         <Floaty className="left-[16%] top-[4%] w-[10%]" duration={7} delay={1.2} rotate={18} animate={animate}>
-          <BananaSvg className="w-full opacity-70" />
+          <CakeSliceSvg className="w-full opacity-50" />
         </Floaty>
         <Floaty className="right-[30%] bottom-[2%] w-[9%]" duration={6} delay={0.6} rotate={14} animate={animate}>
-          <BananaSvg className="w-full -scale-x-100 opacity-60" />
+          <CakeSliceSvg className="w-full -scale-x-100 opacity-40" />
         </Floaty>
         <Sparkle className="absolute left-[8%] top-[38%] w-[5%]" delay={0.4} animate={animate} />
-        <Sparkle className="absolute right-[10%] top-[16%] w-[4%]" color="#ff91a4" delay={1.1} animate={animate} />
-        <Sparkle className="absolute left-[24%] bottom-[12%] w-[4%]" color="#ff91a4" delay={1.8} animate={animate} />
+        <Sparkle className="absolute right-[10%] top-[16%] w-[4%]" color="#c4735c" delay={1.1} animate={animate} />
+        <Sparkle className="absolute left-[24%] bottom-[12%] w-[4%]" color="#c4735c" delay={1.8} animate={animate} />
         <Sparkle className="absolute right-[6%] bottom-[30%] w-[5%]" delay={2.4} animate={animate} />
       </ParallaxLayer>
 
@@ -162,7 +161,7 @@ export default function HeroArt() {
           transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut" }}
         >
           <Steam animate={animate} />
-          {/* Copo interativo: squash no tap + explosão de bananinhas */}
+          {/* Copo interativo: squash no tap + explosão de detalhes */}
           {/* tabIndex -1: easter egg decorativo, o wrapper é aria-hidden */}
           <motion.button
             type="button"
@@ -172,7 +171,7 @@ export default function HeroArt() {
             transition={{ type: "spring", stiffness: 320, damping: 12 }}
             className="pointer-events-auto relative block w-full origin-bottom cursor-pointer"
           >
-            <CoffeeCupSvg className="relative w-full drop-shadow-[0_24px_32px_rgb(74_44_23/0.2)]" />
+            <CoffeeCupSvg className="relative w-full drop-shadow-[0_24px_32px_rgb(58_37_24/0.2)]" />
             <BananaBurst trigger={taps} count={isParty ? 12 : 6} distance={isParty ? 96 : 72} />
             <AnimatePresence>
               {isParty && (
@@ -201,11 +200,11 @@ export default function HeroArt() {
 
       {/* ── Camada da frente: itens grandes e próximos ── */}
       <ParallaxLayer mx={mx} my={my} depth={1}>
-        <Floaty className="left-[-2%] top-[14%] w-[26%]" duration={5.4} rotate={10} animate={animate}>
-          <BananaSvg className="w-full -rotate-12 drop-shadow-lg" />
+        <Floaty className="left-[-2%] top-[14%] w-[22%]" duration={5.4} rotate={10} animate={animate}>
+          <CakeSliceSvg className="w-full -rotate-12 drop-shadow-lg" />
         </Floaty>
         <Floaty className="right-[0%] top-[8%] w-[17%]" duration={6.2} delay={0.8} rotate={12} animate={animate}>
-          <BananaSvg className="w-full rotate-45 -scale-x-100 drop-shadow-md" />
+          <CakeSliceSvg className="w-full rotate-45 -scale-x-100 drop-shadow-md" />
         </Floaty>
         <Floaty className="bottom-[10%] right-[2%] w-[22%]" duration={5.8} delay={0.4} rotate={7} animate={animate}>
           <CakeSliceSvg className="w-full rotate-6 drop-shadow-lg" />

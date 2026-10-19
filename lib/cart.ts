@@ -79,7 +79,7 @@ export function cartSubtotal(lines: CartLine[]) {
 
 /** Mensagem do pedido — SEM nenhum preço, de propósito. */
 export function buildOrderMessage(lines: CartLine[], customer: Customer) {
-  const parts: string[] = ["🍌 *NOVO PEDIDO — Café Banana*", "", "*Itens do pedido:*"];
+  const parts: string[] = ["☕ *NOVO PEDIDO — Café da Praça*", "", "*Itens do pedido:*"];
 
   for (const line of lines) {
     parts.push(`▪ ${line.qty}x ${line.name}`);
@@ -102,7 +102,7 @@ export function buildOrderMessage(lines: CartLine[], customer: Customer) {
   parts.push(`*Pagamento:* ${payment}`);
 
   parts.push("");
-  parts.push("_Pedido enviado pelo site_ 💛");
+  parts.push("_Pedido enviado pelo site do Café da Praça_ ☕✨");
 
   return parts.join("\n");
 }

@@ -122,7 +122,7 @@ export default function AddToCartModal() {
               {addons.length > 0 && (
                 <div>
                   <p className="font-display text-sm font-bold uppercase tracking-wide text-cocoa/60">
-                    Turbine o seu 🍌
+                    Personalize seu pedido ☕
                   </p>
                   <div className="mt-2.5 space-y-2">
                     {addons.map((addon) => {
@@ -137,7 +137,7 @@ export default function AddToCartModal() {
                           whileTap={{ scale: 0.97 }}
                           className={`flex w-full items-center justify-between rounded-2xl border-2 bg-white px-4 py-3 text-left transition-colors ${
                             active
-                              ? "border-bubblegum shadow-[0_6px_20px_-8px_rgb(255_107_133/0.5)]"
+                              ? "border-banana bg-banana/10 shadow-[0_6px_20px_-8px_rgb(200_149_108/0.4)]"
                               : "border-cocoa/10"
                           }`}
                         >
@@ -145,7 +145,7 @@ export default function AddToCartModal() {
                             <span
                               className={`flex h-6 w-6 items-center justify-center rounded-full border-2 text-xs font-bold transition-colors ${
                                 active
-                                  ? "border-bubblegum bg-bubblegum text-white"
+                                  ? "border-banana-deep bg-banana-deep text-cream"
                                   : "border-cocoa/25 text-transparent"
                               }`}
                             >
@@ -155,7 +155,7 @@ export default function AddToCartModal() {
                               + {addon.name}
                             </span>
                           </span>
-                          <span className="font-display text-sm font-bold text-bubblegum-deep">
+                          <span className="font-display text-sm font-bold text-terracotta">
                             {formatPrice(addon.price)}
                           </span>
                         </motion.button>
@@ -180,7 +180,7 @@ export default function AddToCartModal() {
                   onChange={(e) => setNote(e.target.value)}
                   maxLength={120}
                   placeholder="Ex.: sem canela, bem quentinho…"
-                  className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-bubblegum focus:outline-none"
+                  className="mt-2 w-full rounded-2xl border-2 border-cocoa/10 bg-white px-4 py-3 text-cocoa placeholder:text-cocoa/35 focus:border-banana focus:outline-none"
                 />
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function AddToCartModal() {
                 type="button"
                 onClick={confirm}
                 whileTap={{ scale: 0.96 }}
-                className="flex-1 rounded-full bg-gradient-to-r from-banana to-bubblegum px-4 py-3.5 font-display font-bold text-cocoa shadow-[0_10px_28px_-8px_rgb(255_107_133/0.6)]"
+                className="flex-1 rounded-full bg-gradient-to-r from-banana via-banana to-terracotta px-4 py-3.5 font-display font-bold text-cream shadow-lg hover:brightness-105"
               >
                 Adicionar • {formatPrice(unitTotal * qty)}
               </motion.button>
